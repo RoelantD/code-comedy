@@ -31,7 +31,13 @@
 
 *GATE: Must pass before Phase 0 research. Re-check after Phase 1 design.*
 
-[Gates determined based on constitution file]
+- [ ] Tool-first design is preserved: each capability maps to a single-purpose MCP tool.
+- [ ] Read-only boundary is explicit: no mutation path is introduced.
+- [ ] Trust boundary controls are defined: JSON validation, data-only handling, no execution.
+- [ ] Agent-safe response strategy is defined: compact, factual, structured output shapes.
+- [ ] Security/observability controls are defined: least privilege, structured logs, safe errors.
+- [ ] Quality bar is enforceable: tests include happy path, empty, invalid input, malformed JSON.
+- [ ] Separation of concerns is preserved: spec describes behavior, plan describes implementation.
 
 ## Project Structure
 

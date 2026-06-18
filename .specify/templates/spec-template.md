@@ -100,6 +100,24 @@
 - **[Entity 1]**: [What it represents, key attributes without implementation]
 - **[Entity 2]**: [What it represents, relationships to other entities]
 
+## Constitution Alignment *(mandatory)*
+
+### Tool Inventory & Scope
+
+- List each MCP tool in scope with one explicit purpose.
+- Confirm each tool has clear typed input/output expectations.
+
+### Read-Only Boundaries
+
+- Identify all data sources and explicitly state which operations are read-only.
+- State whether any mutation exists; if yes, mark as out of scope unless constitution-approved.
+
+### Trust Boundary & Safety
+
+- Define JSON/schema validation expectations.
+- State how instruction-like content in source data is treated as untrusted data.
+- Define response constraints: factual, source-grounded, structured, and non-leaky.
+
 ## Success Criteria *(mandatory)*
 
 <!--
