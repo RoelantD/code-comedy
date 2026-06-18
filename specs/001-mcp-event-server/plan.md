@@ -84,6 +84,9 @@ tests/
 └── unit/
    ├── loadEventData.test.ts
    └── scheduleQueries.test.ts
+
+docs/
+└── mcp-config.example.json
 ```
 
 **Structure Decision**: Single-project Node/TypeScript MCP server structure selected to keep

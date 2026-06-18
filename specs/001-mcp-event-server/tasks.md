@@ -54,8 +54,11 @@
 
 ### Tests for User Story 1
 
-- [ ] T016 [P] [US1] Add contract tests for get_event_info, list_schedule, and get_current_or_next_item in tests/contract/us1-timeline.contract.test.ts
+- [ ] T016 [P] [US1] Add contract tests for get_event_info happy and empty scenarios in tests/contract/us1-timeline.contract.test.ts
 - [ ] T017 [P] [US1] Add integration tests for overlapping schedules and time-context transitions in tests/integration/us1-timeline.behavior.test.ts
+- [ ] T041 [P] [US1] Add invalid-input and malformed-data tests for get_event_info in tests/contract/us1-get-event-info.invalid-malformed.test.ts
+- [ ] T042 [P] [US1] Add invalid-input and malformed-data tests for list_schedule in tests/contract/us1-list-schedule.invalid-malformed.test.ts
+- [ ] T043 [P] [US1] Add invalid-input and malformed-data tests for get_current_or_next_item in tests/contract/us1-current-next.invalid-malformed.test.ts
 
 ### Implementation for User Story 1
 
@@ -77,8 +80,12 @@
 
 ### Tests for User Story 2
 
-- [ ] T023 [P] [US2] Add contract tests for search_sessions, list_speakers, list_categories, and get_session_details in tests/contract/us2-discovery.contract.test.ts
+- [ ] T023 [P] [US2] Add contract tests for search_sessions, list_speakers, list_categories, and get_session_details happy and empty scenarios in tests/contract/us2-discovery.contract.test.ts
 - [ ] T024 [P] [US2] Add integration tests for partial matching, nested breakout flattening, and missing bio/abstract handling in tests/integration/us2-discovery.behavior.test.ts
+- [ ] T044 [P] [US2] Add invalid-input and malformed-data tests for search_sessions in tests/contract/us2-search-sessions.invalid-malformed.test.ts
+- [ ] T045 [P] [US2] Add invalid-input and malformed-data tests for list_speakers in tests/contract/us2-list-speakers.invalid-malformed.test.ts
+- [ ] T046 [P] [US2] Add invalid-input and malformed-data tests for list_categories in tests/contract/us2-list-categories.invalid-malformed.test.ts
+- [ ] T047 [P] [US2] Add invalid-input and malformed-data tests for get_session_details in tests/contract/us2-session-details.invalid-malformed.test.ts
 
 ### Implementation for User Story 2
 
@@ -101,8 +108,9 @@
 
 ### Tests for User Story 3
 
-- [ ] T031 [P] [US3] Add contract tests for recommend_sessions in tests/contract/us3-recommendations.contract.test.ts
+- [ ] T031 [P] [US3] Add contract tests for recommend_sessions happy and empty scenarios in tests/contract/us3-recommendations.contract.test.ts
 - [ ] T032 [P] [US3] Add integration tests for ranking, empty interests, and no-match scenarios in tests/integration/us3-recommendations.behavior.test.ts
+- [ ] T048 [P] [US3] Add invalid-input and malformed-data tests for recommend_sessions in tests/contract/us3-recommendations.invalid-malformed.test.ts
 
 ### Implementation for User Story 3
 
@@ -139,7 +147,7 @@
 
 - US1 (P1): starts after Foundational, no dependency on other stories
 - US2 (P2): starts after Foundational, can run in parallel with US1 but integrates with shared query module
-- US3 (P3): starts after Foundational and depends on discovery/query behavior from US2 for recommendation relevance
+- US3 (P3): starts after Foundational, remains independently testable, and reuses shared primitives created in Phase 2
 
 ### Within Each User Story
 
