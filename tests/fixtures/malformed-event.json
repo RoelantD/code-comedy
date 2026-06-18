@@ -1,0 +1,58 @@
+{
+  "eventMetadata": {
+    "eventName": "Invalid Event - Missing Fields",
+    "eventDate": "2024-12-15",
+    "location": null
+  },
+  "sessions": [
+    {
+      "id": "malformed-1",
+      "title": "Overlapping Times",
+      "speakers": [
+        {
+          "name": "Speaker Name"
+        }
+      ],
+      "categories": [
+        {
+          "id": "cat1",
+          "name": "JavaScript"
+        }
+      ],
+      "startTime": "14:00",
+      "endTime": "13:00",
+      "breakouts": []
+    },
+    {
+      "id": "malformed-2",
+      "title": "Missing Required Field",
+      "speakers": [],
+      "categories": [],
+      "startTime": "15:00",
+      "breakouts": [
+        {
+          "title": "Nested Breakout",
+          "speakers": [],
+          "categories": [],
+          "startTime": "invalid-time",
+          "endTime": "15:30"
+        }
+      ]
+    },
+    {
+      "id": "null-fields",
+      "title": "Session with Null Fields",
+      "speakers": [
+        {
+          "name": "Alice",
+          "bio": null
+        }
+      ],
+      "categories": [],
+      "abstract": null,
+      "startTime": "16:00",
+      "endTime": "17:00",
+      "breakouts": []
+    }
+  ]
+}
