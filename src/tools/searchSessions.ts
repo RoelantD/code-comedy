@@ -13,7 +13,7 @@ export interface SearchMatch {
   title: string;
   abstract?: string;
   speakers: Array<{ speakerId: string; name: string; bio?: string }>;
-  categories: Array<{ categoryId: string; name: string }>;
+  categories: string[];
   matchedFields: string[];
   matchReasons: string[];
 }
@@ -78,7 +78,7 @@ export function searchSessionsHandler(
         title: session.title,
         abstract: session.abstract,
         speakers: Array.from(session.speakers),
-        categories: Array.from(session.categories),
+        categories: session.categories.map((category) => category.name),
         matchedFields,
         matchReasons,
       });

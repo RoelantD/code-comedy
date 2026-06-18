@@ -1,7 +1,6 @@
-import { describe, it, expect, beforeAll } from 'vitest';
+import { describe, it, expect } from 'vitest';
 import { parseRawEventData, RawEventData } from '../../src/data/schemas';
 import { loadEventData, loadEventDataSync } from '../../src/data/loadEventData';
-import { z } from 'zod';
 
 describe('loadEventData - Data Loading Validation', () => {
   describe('parseRawEventData - Schema Validation', () => {
@@ -189,11 +188,10 @@ describe('loadEventData - Data Loading Validation', () => {
   });
 
   describe('loadEventDataSync - Sync File Loading', () => {
-    it('should fail gracefully on missing file', () => {
-      // This will fail in most test environments since file path is relative
-      expect(() => {
-        loadEventDataSync();
-      }).toThrow();
+    it('should load and validate the local event JSON file', () => {
+      const data = loadEventDataSync();
+      expect(data.eventMetadata.eventName.length).toBeGreaterThan(0);
+      expect(data.sessions.length).toBeGreaterThan(0);
     });
   });
 });

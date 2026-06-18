@@ -6,7 +6,6 @@ import {
   findSessionsInTimeWindow,
   getCurrentSession,
   getNextSession,
-  getAllSpeakers,
 } from '../../src/domain/scheduleQueries';
 import { RawEventData } from '../../src/data/schemas';
 

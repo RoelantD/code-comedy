@@ -1,0 +1,13 @@
+node_modules/
+src/
+tests/
+specs/
+demo-prompts/
+.vscode/
+.specify/
+*.log
+*.tsbuildinfo
+coverage/
+vitest.config.ts
+tsconfig.json
+CODE-COMEDY.md

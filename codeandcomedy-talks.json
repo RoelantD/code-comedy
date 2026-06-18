@@ -16,19 +16,30 @@
       "startTime": "17:00",
       "endTime": "18:20",
       "title": "Welcome & Dinner",
-      "type": "general"
+      "type": "general",
+      "categories": [
+        "community",
+        "networking"
+      ]
     },
     {
       "startTime": "18:30",
       "endTime": "18:35",
       "title": "Opening",
-      "type": "general"
+      "type": "general",
+      "categories": [
+        "opening"
+      ]
     },
     {
       "startTime": "18:35",
       "endTime": "19:20",
       "title": "Beyond the Boundaries of AI",
       "type": "keynote",
+      "categories": [
+        "AI",
+        "keynote"
+      ],
       "speakers": [
         {
           "name": "Jeroen van der Most"
@@ -40,9 +51,19 @@
       "endTime": "20:15",
       "title": "Breakout sessions 1",
       "type": "breakout-group",
+      "categories": [
+        "breakout",
+        "AI",
+        "agents"
+      ],
       "sessions": [
         {
           "title": "Be Precise or Be Surprised: Spec-Driven Development with GitHub Spec Kit",
+          "categories": [
+            "agents",
+            "spec-driven",
+            "GitHub Copilot"
+          ],
           "speakers": [
             {
               "name": "Roelant Dieben",
@@ -53,6 +74,11 @@
         },
         {
           "title": "SQL 2025 vector searching with a local Ollama hosting the mxbai-embed-large LLM",
+          "categories": [
+            "AI",
+            "LLM",
+            "SQL"
+          ],
           "speakers": [
             {
               "name": "Theo Ekelmans"
@@ -61,6 +87,12 @@
         },
         {
           "title": "Agentic-AI: Building an AI oriented Kubernetes platform using AI agents",
+          "categories": [
+            "AI",
+            "agents",
+            "cloud",
+            "Kubernetes"
+          ],
           "speakers": [
             {
               "name": "Sander Mathijssen",
@@ -71,6 +103,10 @@
         },
         {
           "title": "The AI realist",
+          "categories": [
+            "AI",
+            "engineering"
+          ],
           "speakers": [
             {
               "name": "Bjorn Schijff",
@@ -81,6 +117,11 @@
         },
         {
           "title": "Be Aware of the Context You Provide",
+          "categories": [
+            "AI",
+            "agents",
+            "prompting"
+          ],
           "speakers": [
             {
               "name": "Gijsbert Nutma",
@@ -96,9 +137,20 @@
       "endTime": "20:15",
       "title": "Breakout sessions 2",
       "type": "breakout-group",
+      "categories": [
+        "breakout",
+        "AI",
+        "agents",
+        "cloud"
+      ],
       "sessions": [
         {
           "title": "Close the gap between AI and Robotics with Java 25",
+          "categories": [
+            "AI",
+            "robotics",
+            "Java"
+          ],
           "speakers": [
             {
               "name": "Ricky van Rijn"
@@ -107,6 +159,11 @@
         },
         {
           "title": "Choosing the Right LLM, Automatically",
+          "categories": [
+            "AI",
+            "LLM",
+            "agents"
+          ],
           "speakers": [
             {
               "name": "Stuart van der Lee"
@@ -115,6 +172,11 @@
         },
         {
           "title": "Building Flexible AI Avatars for Immersive Training",
+          "categories": [
+            "AI",
+            "avatars",
+            "training"
+          ],
           "speakers": [
             {
               "name": "Arco Nederveen"
@@ -126,6 +188,12 @@
         },
         {
           "title": "Build an AI Agent That Actually Does Your Work: MCP + LangGraph",
+          "categories": [
+            "AI",
+            "agents",
+            "MCP",
+            "LangGraph"
+          ],
           "speakers": [
             {
               "name": "Peter Eijgermans",
@@ -136,6 +204,12 @@
         },
         {
           "title": "Build an agent into any app with the GitHub Copilot SDK",
+          "categories": [
+            "AI",
+            "agents",
+            "GitHub Copilot",
+            "SDK"
+          ],
           "speakers": [
             {
               "name": "Bart Wullems",
@@ -151,6 +225,9 @@
       "endTime": "21:45",
       "title": "Comedy by Kim Schuddeboom",
       "type": "comedy",
+      "categories": [
+        "comedy"
+      ],
       "speakers": [
         {
           "name": "Kim Schuddeboom"
@@ -162,7 +239,10 @@
       "startTime": "21:50",
       "endTime": "23:00",
       "title": "Drinks",
-      "type": "general"
+      "type": "general",
+      "categories": [
+        "networking"
+      ]
     }
   ],
   "notes": [

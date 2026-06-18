@@ -13,7 +13,7 @@ export interface SessionDetailsResponse {
   title: string;
   abstract?: string;
   speakers: Array<{ speakerId: string; name: string; bio?: string }>;
-  categories: Array<{ categoryId: string; name: string }>;
+  categories: string[];
   sessionType: string;
   startTime: string;
   endTime: string;
@@ -59,7 +59,7 @@ export function getSessionDetailsHandler(
     title: primarySession.title,
     abstract: primarySession.abstract,
     speakers: Array.from(primarySession.speakers),
-    categories: Array.from(primarySession.categories),
+    categories: primarySession.categories.map((category) => category.name),
     sessionType: primarySession.sessionType,
     startTime: primarySession.startTime,
     endTime: primarySession.endTime,

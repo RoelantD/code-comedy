@@ -51,7 +51,7 @@ export interface RecommendationResult {
   readonly score: number;
   readonly matchReasons: ReadonlyArray<string>;
   readonly speakers: ReadonlyArray<Speaker>;
-  readonly categories: ReadonlyArray<Category>;
+  readonly categories: ReadonlyArray<string>;
   readonly startTime: string;
   readonly endTime: string;
 }

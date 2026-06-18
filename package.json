@@ -14,11 +14,11 @@
     "test": "vitest",
     "test:ui": "vitest --ui",
     "test:coverage": "vitest --coverage",
-    "lint": "eslint src/ tests/",
+    "lint": "eslint \"src/**/*.ts\" \"tests/**/*.ts\"",
     "type-check": "tsc --noEmit"
   },
   "dependencies": {
-    "@modelcontextprotocol/sdk": "^0.7.0",
+    "@modelcontextprotocol/sdk": "^1.29.0",
     "zod": "^3.22.4"
   },
   "devDependencies": {
@@ -27,9 +27,9 @@
     "@typescript-eslint/parser": "^6.13.2",
     "@vitest/ui": "^1.0.4",
     "eslint": "^8.55.0",
+    "tsx": "^4.7.0",
     "typescript": "^5.3.3",
-    "vitest": "^1.0.4",
-    "tsx": "^4.7.0"
+    "vitest": "^1.0.4"
   },
   "engines": {
     "node": ">=22.0.0",

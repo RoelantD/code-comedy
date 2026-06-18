@@ -1,6 +1,8 @@
 import { Server } from '@modelcontextprotocol/sdk/server/index.js';
-import { StdioServerTransport } from '@modelcontextprotocol/sdk/server/stdio.js';
+import { StreamableHTTPServerTransport } from '@modelcontextprotocol/sdk/server/streamableHttp.js';
 import { CallToolRequestSchema, ListToolsRequestSchema } from '@modelcontextprotocol/sdk/types.js';
+import { createServer, ServerResponse } from 'node:http';
+import { URL } from 'node:url';
 import { loadEventDataSync } from './data/loadEventData.js';
 import { normalizeEventData } from './domain/normalizeEventData.js';
 import { EventModel } from './domain/eventModel.js';
@@ -12,32 +14,26 @@ import { searchSessionsHandler } from './tools/searchSessions.js';
 import { listSpeakersHandler } from './tools/listSpeakers.js';
 import { listCategoriesHandler } from './tools/listCategories.js';
 import { getSessionDetailsHandler } from './tools/getSessionDetails.js';
+import { recommendSessionsHandler } from './tools/recommendSessions.js';
 
 let eventModel: EventModel;
+const MCP_ENDPOINT = '/mcp';
 
 /**
- * Initialize MCP server with loaded event model
+ * Create MCP server with loaded event model.
  */
-async function initializeServer(): Promise<Server> {
+function createMcpServer(): Server {
   const server = new Server(
     {
       name: 'code-comedy-mcp',
       version: '0.1.0',
     },
     {
-      capabilities: {},
+      capabilities: {
+        tools: {},
+      },
     }
   );
-
-  // Load and normalize event data once at startup
-  try {
-    const rawData = loadEventDataSync();
-    eventModel = normalizeEventData(rawData);
-    console.error('[MCP] Event data loaded and validated');
-  } catch (error) {
-    console.error('[MCP] Fatal: Failed to load event data:', error);
-    process.exit(1);
-  }
 
   // Register list_tools handler
   server.setRequestHandler(ListToolsRequestSchema, async () => ({
@@ -237,16 +233,18 @@ async function initializeServer(): Promise<Server> {
           };
         }
 
-        // US3 tools (not yet implemented)
-        case 'recommend_sessions':
+        // US3 tools
+        case 'recommend_sessions': {
+          const result = recommendSessionsHandler(eventModel, input);
           return {
             content: [
               {
                 type: 'text',
-                text: JSON.stringify(commonTools.errorResponse(`Tool ${toolName} not yet implemented`)),
+                text: JSON.stringify(result),
               },
             ],
           };
+        }
 
         default:
           return {
@@ -277,14 +275,79 @@ async function initializeServer(): Promise<Server> {
 }
 
 /**
- * Main entry point
+ * Load and validate data once at startup.
  */
-async function main() {
-  const server = await initializeServer();
-  const transport = new StdioServerTransport();
+function loadModelOrExit(): void {
+  try {
+    const rawData = loadEventDataSync();
+    eventModel = normalizeEventData(rawData);
+    console.error('[MCP] Event data loaded and validated');
+  } catch (error) {
+    console.error('[MCP] Fatal: Failed to load event data:', error);
+    process.exit(1);
+  }
+}
+
+function sendNotFound(res: ServerResponse): void {
+  res.writeHead(404, { 'Content-Type': 'application/json' });
+  res.end(JSON.stringify({ error: 'Not found' }));
+}
+
+async function handleMcpRequest(req: any, res: any): Promise<void> {
+  const server = createMcpServer();
+  const transport = new StreamableHTTPServerTransport({
+    sessionIdGenerator: undefined,
+  });
 
   await server.connect(transport);
-  console.error('[MCP] Server started on stdio transport');
+  await transport.handleRequest(req, res);
+
+  res.on('close', () => {
+    transport.close().catch(() => undefined);
+    server.close().catch(() => undefined);
+  });
+}
+
+async function main() {
+  loadModelOrExit();
+
+  const port = Number(process.env.PORT ?? '3000');
+
+  const httpServer = createServer(async (req, res) => {
+    try {
+      const requestUrl = new URL(req.url ?? '', `http://${req.headers.host}`);
+
+      if (req.method === 'GET' && requestUrl.pathname === '/') {
+        res.writeHead(200, { 'Content-Type': 'application/json' });
+        res.end(
+          JSON.stringify({
+            name: 'code-comedy-mcp',
+            transport: 'streamable-http',
+            endpoint: MCP_ENDPOINT,
+          })
+        );
+        return;
+      }
+
+      if (
+        requestUrl.pathname === MCP_ENDPOINT &&
+        (req.method === 'GET' || req.method === 'POST' || req.method === 'DELETE')
+      ) {
+        await handleMcpRequest(req, res);
+        return;
+      }
+
+      sendNotFound(res);
+    } catch (error) {
+      console.error('[MCP] HTTP server error:', error);
+      res.writeHead(500, { 'Content-Type': 'application/json' });
+      res.end(JSON.stringify({ error: 'Internal server error' }));
+    }
+  });
+
+  httpServer.listen(port, () => {
+    console.error(`[MCP] Streamable HTTP server listening on http://localhost:${port}${MCP_ENDPOINT}`);
+  });
 }
 
 main().catch((error) => {

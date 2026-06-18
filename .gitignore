@@ -38,11 +38,13 @@ Thumbs.db
 .env
 .env.local
 .env.*.local
+.env*
 
 # Temporary
 tmp/
 temp/
 .cache/
+*.tmp
 
 # Project specific
 .specify/

@@ -1,5 +1,5 @@
 import { z } from 'zod';
-import { EventModel, ToolResponse } from '../domain/eventModel';
+import { ToolResponse } from '../domain/eventModel';
 
 /**
  * Common error envelope and response formatting for all tools
@@ -114,7 +114,7 @@ export function formatSessionSummary(session: any): any {
     sessionId: session.sessionId,
     title: session.title,
     speakers: session.speakers.map((s: any) => ({ speakerId: s.speakerId, name: s.name })),
-    categories: session.categories.map((c: any) => ({ categoryId: c.categoryId, name: c.name })),
+    categories: session.categories.map((c: any) => c.name),
     sessionType: session.sessionType,
     startTime: session.startTime,
     endTime: session.endTime,
@@ -129,7 +129,7 @@ export function formatSessionDetail(session: any): any {
     sessionId: session.sessionId,
     title: session.title,
     speakers: session.speakers.map((s: any) => ({ speakerId: s.speakerId, name: s.name })),
-    categories: session.categories.map((c: any) => ({ categoryId: c.categoryId, name: c.name })),
+    categories: session.categories.map((c: any) => c.name),
     sessionType: session.sessionType,
     startTime: session.startTime,
     endTime: session.endTime,

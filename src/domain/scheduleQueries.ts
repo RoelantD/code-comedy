@@ -1,10 +1,8 @@
 import {
   EventModel,
   SessionDetail,
-  SessionSummary,
   Speaker,
   Category,
-  ScheduleItem,
 } from './eventModel';
 
 /**

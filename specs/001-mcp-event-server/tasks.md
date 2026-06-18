@@ -17,11 +17,11 @@
 
 **Purpose**: Initialize TypeScript MCP server project and developer tooling.
 
-- [ ] T001 Initialize Node.js project metadata and scripts in package.json
-- [ ] T002 Add TypeScript compiler configuration in tsconfig.json
-- [ ] T003 [P] Add Vitest configuration in vitest.config.ts
-- [ ] T004 [P] Add ignore and editor defaults in .gitignore
-- [ ] T005 [P] Create source and test folder skeleton with barrel exports in src/index.ts
+- [X] T001 Initialize Node.js project metadata and scripts in package.json
+- [X] T002 Add TypeScript compiler configuration in tsconfig.json
+- [X] T003 [P] Add Vitest configuration in vitest.config.ts
+- [X] T004 [P] Add ignore and editor defaults in .gitignore
+- [X] T005 [P] Create source and test folder skeleton with barrel exports in src/index.ts
 
 ---
 
@@ -31,16 +31,16 @@
 
 **CRITICAL**: User story work starts only after this phase is complete.
 
-- [ ] T006 Define raw JSON Zod schemas and parsing helpers in src/data/schemas.ts
-- [ ] T007 Implement validated read-only startup data loader in src/data/loadEventData.ts
-- [ ] T008 Define normalized entity types and response shapes in src/domain/eventModel.ts
-- [ ] T009 Implement JSON-to-model normalization including breakout flattening in src/domain/normalizeEventData.ts
-- [ ] T010 Implement shared schedule and entity query primitives in src/domain/scheduleQueries.ts
-- [ ] T011 Implement shared tool response/error envelope helpers in src/tools/common.ts
-- [ ] T012 Wire MCP server bootstrap, immutable model load, and stateless transport in src/index.ts
-- [ ] T013 [P] Add malformed and edge-case fixture dataset for tests in tests/fixtures/malformed-event.json
-- [ ] T014 [P] Add loader validation unit tests (happy, invalid, malformed JSON) in tests/unit/loadEventData.test.ts
-- [ ] T015 [P] Add normalization/query unit tests (overlaps, flattening, missing fields) in tests/unit/scheduleQueries.test.ts
+- [X] T006 Define raw JSON Zod schemas and parsing helpers in src/data/schemas.ts
+- [X] T007 Implement validated read-only startup data loader in src/data/loadEventData.ts
+- [X] T008 Define normalized entity types and response shapes in src/domain/eventModel.ts
+- [X] T009 Implement JSON-to-model normalization including breakout flattening in src/domain/normalizeEventData.ts
+- [X] T010 Implement shared schedule and entity query primitives in src/domain/scheduleQueries.ts
+- [X] T011 Implement shared tool response/error envelope helpers in src/tools/common.ts
+- [X] T012 Wire MCP server bootstrap, immutable model load, and stateless transport in src/index.ts
+- [X] T013 [P] Add malformed and edge-case fixture dataset for tests in tests/fixtures/malformed-event.json
+- [X] T014 [P] Add loader validation unit tests (happy, invalid, malformed JSON) in tests/unit/loadEventData.test.ts
+- [X] T015 [P] Add normalization/query unit tests (overlaps, flattening, missing fields) in tests/unit/scheduleQueries.test.ts
 
 **Checkpoint**: Foundation ready, user story implementation can begin.
 
@@ -54,19 +54,19 @@
 
 ### Tests for User Story 1
 
-- [ ] T016 [P] [US1] Add contract tests for get_event_info happy and empty scenarios in tests/contract/us1-timeline.contract.test.ts
-- [ ] T017 [P] [US1] Add integration tests for overlapping schedules and time-context transitions in tests/integration/us1-timeline.behavior.test.ts
-- [ ] T041 [P] [US1] Add invalid-input and malformed-data tests for get_event_info in tests/contract/us1-get-event-info.invalid-malformed.test.ts
-- [ ] T042 [P] [US1] Add invalid-input and malformed-data tests for list_schedule in tests/contract/us1-list-schedule.invalid-malformed.test.ts
-- [ ] T043 [P] [US1] Add invalid-input and malformed-data tests for get_current_or_next_item in tests/contract/us1-current-next.invalid-malformed.test.ts
+- [X] T016 [P] [US1] Add contract tests for get_event_info happy and empty scenarios in tests/contract/us1-timeline.contract.test.ts
+- [X] T017 [P] [US1] Add integration tests for overlapping schedules and time-context transitions in tests/integration/us1-timeline.behavior.test.ts
+- [X] T041 [P] [US1] Add invalid-input and malformed-data tests for get_event_info in tests/contract/us1-get-event-info.invalid-malformed.test.ts
+- [X] T042 [P] [US1] Add invalid-input and malformed-data tests for list_schedule in tests/contract/us1-list-schedule.invalid-malformed.test.ts
+- [X] T043 [P] [US1] Add invalid-input and malformed-data tests for get_current_or_next_item in tests/contract/us1-current-next.invalid-malformed.test.ts
 
 ### Implementation for User Story 1
 
-- [ ] T018 [P] [US1] Implement get_event_info tool handler and schema in src/tools/getEventInfo.ts
-- [ ] T019 [P] [US1] Implement list_schedule tool handler and schema in src/tools/listSchedule.ts
-- [ ] T020 [P] [US1] Implement get_current_or_next_item tool handler and schema in src/tools/getCurrentOrNextItem.ts
-- [ ] T021 [US1] Register US1 tools and handlers in MCP server setup in src/index.ts
-- [ ] T022 [US1] Add unavailable-field and safe error mapping for US1 outputs in src/tools/common.ts
+- [X] T018 [P] [US1] Implement get_event_info tool handler and schema in src/tools/getEventInfo.ts
+- [X] T019 [P] [US1] Implement list_schedule tool handler and schema in src/tools/listSchedule.ts
+- [X] T020 [P] [US1] Implement get_current_or_next_item tool handler and schema in src/tools/getCurrentOrNextItem.ts
+- [X] T021 [US1] Register US1 tools and handlers in MCP server setup in src/index.ts
+- [X] T022 [US1] Add unavailable-field and safe error mapping for US1 outputs in src/tools/common.ts
 
 **Checkpoint**: US1 is independently functional and testable.
 
@@ -80,21 +80,21 @@
 
 ### Tests for User Story 2
 
-- [ ] T023 [P] [US2] Add contract tests for search_sessions, list_speakers, list_categories, and get_session_details happy and empty scenarios in tests/contract/us2-discovery.contract.test.ts
-- [ ] T024 [P] [US2] Add integration tests for partial matching, nested breakout flattening, and missing bio/abstract handling in tests/integration/us2-discovery.behavior.test.ts
-- [ ] T044 [P] [US2] Add invalid-input and malformed-data tests for search_sessions in tests/contract/us2-search-sessions.invalid-malformed.test.ts
-- [ ] T045 [P] [US2] Add invalid-input and malformed-data tests for list_speakers in tests/contract/us2-list-speakers.invalid-malformed.test.ts
-- [ ] T046 [P] [US2] Add invalid-input and malformed-data tests for list_categories in tests/contract/us2-list-categories.invalid-malformed.test.ts
-- [ ] T047 [P] [US2] Add invalid-input and malformed-data tests for get_session_details in tests/contract/us2-session-details.invalid-malformed.test.ts
+- [X] T023 [P] [US2] Add contract tests for search_sessions, list_speakers, list_categories, and get_session_details happy and empty scenarios in tests/contract/us2-discovery.contract.test.ts
+- [X] T024 [P] [US2] Add integration tests for partial matching, nested breakout flattening, and missing bio/abstract handling in tests/integration/us2-discovery.behavior.test.ts
+- [X] T044 [P] [US2] Add invalid-input and malformed-data tests for search_sessions in tests/contract/us2-search-sessions.invalid-malformed.test.ts
+- [X] T045 [P] [US2] Add invalid-input and malformed-data tests for list_speakers in tests/contract/us2-list-speakers.invalid-malformed.test.ts
+- [X] T046 [P] [US2] Add invalid-input and malformed-data tests for list_categories in tests/contract/us2-list-categories.invalid-malformed.test.ts
+- [X] T047 [P] [US2] Add invalid-input and malformed-data tests for get_session_details in tests/contract/us2-session-details.invalid-malformed.test.ts
 
 ### Implementation for User Story 2
 
-- [ ] T025 [P] [US2] Implement search_sessions tool handler with matchedFields and matchReasons in src/tools/searchSessions.ts
-- [ ] T026 [P] [US2] Implement list_speakers tool handler with linked sessions in src/tools/listSpeakers.ts
-- [ ] T027 [P] [US2] Implement list_categories tool handler with linked sessions in src/tools/listCategories.ts
-- [ ] T028 [P] [US2] Implement get_session_details tool handler with alternatives for ambiguous matches in src/tools/getSessionDetails.ts
-- [ ] T029 [US2] Extend query primitives for tokenized case-insensitive partial search in src/domain/scheduleQueries.ts
-- [ ] T030 [US2] Register US2 tools and handlers in MCP server setup in src/index.ts
+- [X] T025 [P] [US2] Implement search_sessions tool handler with matchedFields and matchReasons in src/tools/searchSessions.ts
+- [X] T026 [P] [US2] Implement list_speakers tool handler with linked sessions in src/tools/listSpeakers.ts
+- [X] T027 [P] [US2] Implement list_categories tool handler with linked sessions in src/tools/listCategories.ts
+- [X] T028 [P] [US2] Implement get_session_details tool handler with alternatives for ambiguous matches in src/tools/getSessionDetails.ts
+- [X] T029 [US2] Extend query primitives for tokenized case-insensitive partial search in src/domain/scheduleQueries.ts
+- [X] T030 [US2] Register US2 tools and handlers in MCP server setup in src/index.ts
 
 **Checkpoint**: US1 and US2 are both independently functional and testable.
 
@@ -108,15 +108,15 @@
 
 ### Tests for User Story 3
 
-- [ ] T031 [P] [US3] Add contract tests for recommend_sessions happy and empty scenarios in tests/contract/us3-recommendations.contract.test.ts
-- [ ] T032 [P] [US3] Add integration tests for ranking, empty interests, and no-match scenarios in tests/integration/us3-recommendations.behavior.test.ts
-- [ ] T048 [P] [US3] Add invalid-input and malformed-data tests for recommend_sessions in tests/contract/us3-recommendations.invalid-malformed.test.ts
+- [X] T031 [P] [US3] Add contract tests for recommend_sessions happy and empty scenarios in tests/contract/us3-recommendations.contract.test.ts
+- [X] T032 [P] [US3] Add integration tests for ranking, empty interests, and no-match scenarios in tests/integration/us3-recommendations.behavior.test.ts
+- [X] T048 [P] [US3] Add invalid-input and malformed-data tests for recommend_sessions in tests/contract/us3-recommendations.invalid-malformed.test.ts
 
 ### Implementation for User Story 3
 
-- [ ] T033 [P] [US3] Implement recommendation scoring and reason extraction query module in src/domain/recommendationQueries.ts
-- [ ] T034 [US3] Implement recommend_sessions tool handler and schema in src/tools/recommendSessions.ts
-- [ ] T035 [US3] Register US3 tool and handler in MCP server setup in src/index.ts
+- [X] T033 [P] [US3] Implement recommendation scoring and reason extraction query module in src/domain/recommendationQueries.ts
+- [X] T034 [US3] Implement recommend_sessions tool handler and schema in src/tools/recommendSessions.ts
+- [X] T035 [US3] Register US3 tool and handler in MCP server setup in src/index.ts
 
 **Checkpoint**: All user stories are independently functional and testable.
 
@@ -126,11 +126,11 @@
 
 **Purpose**: Finalize demo readiness, documentation, and quality gates across all stories.
 
-- [ ] T036 [P] Add README setup, usage, and sample prompts in README.md
-- [ ] T037 [P] Add sample MCP client configuration for stdio demo in docs/mcp-config.example.json
-- [ ] T038 Align npm scripts for dev/build/test/start and lint commands in package.json
-- [ ] T039 [P] Add final contract regression suite covering all tools in tests/contract/tools.contract.test.ts
-- [ ] T040 Validate quickstart flow and record expected outcomes in specs/001-mcp-event-server/quickstart-validation.md
+- [X] T036 [P] Add README setup, usage, and sample prompts in README.md
+- [X] T037 [P] Add sample MCP client configuration for stdio demo in docs/mcp-config.example.json
+- [X] T038 Align npm scripts for dev/build/test/start and lint commands in package.json
+- [X] T039 [P] Add final contract regression suite covering all tools in tests/contract/tools.contract.test.ts
+- [X] T040 Validate quickstart flow and record expected outcomes in specs/001-mcp-event-server/quickstart-validation.md
 
 ---
 

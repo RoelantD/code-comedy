@@ -74,6 +74,7 @@ const testData: RawEventData = {
 
 beforeAll(() => {
   model = normalizeEventData(testData);
+});
 
 describe('[US2] Discovery Tools - Contract Tests', () => {
   describe('search_sessions tool', () => {

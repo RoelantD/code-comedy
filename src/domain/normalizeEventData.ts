@@ -1,8 +1,4 @@
-import {
-  RawEventData,
-  RawSession,
-  RawBreakout,
-} from '../data/schemas';
+import { RawEventData } from '../data/schemas';
 import {
   EventModel,
   SessionDetail,
