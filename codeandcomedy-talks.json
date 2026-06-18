@@ -1,0 +1,172 @@
+{
+  "source": "https://codeandcomedy.nl/talks",
+  "generatedAt": "2026-06-18",
+  "event": {
+    "name": "Code & Comedy 2026",
+    "theme": "Trust Me, I'm an Agent",
+    "date": "2026-06-18",
+    "location": {
+      "name": "Sopra Steria",
+      "city": "Nieuwegein",
+      "country": "Netherlands"
+    }
+  },
+  "schedule": [
+    {
+      "startTime": "17:00",
+      "endTime": "18:20",
+      "title": "Welcome & Dinner",
+      "type": "general"
+    },
+    {
+      "startTime": "18:30",
+      "endTime": "18:35",
+      "title": "Opening",
+      "type": "general"
+    },
+    {
+      "startTime": "18:35",
+      "endTime": "19:20",
+      "title": "Beyond the Boundaries of AI",
+      "type": "keynote",
+      "speakers": [
+        {
+          "name": "Jeroen van der Most"
+        }
+      ]
+    },
+    {
+      "startTime": "19:45",
+      "endTime": "20:15",
+      "title": "Breakout sessions 1",
+      "type": "breakout-group",
+      "sessions": [
+        {
+          "title": "Be Precise or Be Surprised: Spec-Driven Development with GitHub Spec Kit",
+          "speakers": [
+            {
+              "name": "Roelant Dieben",
+              "bio": "With over 20 years of experience developing software on the Microsoft stack, Roelant is a consultant at Sopra Steria and a Microsoft Azure & AI MVP."
+            }
+          ],
+          "abstract": "Turns out writing clear, unambiguous instructions is harder than it sounds. With spec-driven development, you write the spec and the AI agent writes the code. This session walks through GitHub Spec Kit end to end, showing how it works with agentic workflows, what makes a good spec, and why vague requirements often lead to surprising results."
+        },
+        {
+          "title": "SQL 2025 vector searching with a local Ollama hosting the mxbai-embed-large LLM",
+          "speakers": [
+            {
+              "name": "Theo Ekelmans"
+            }
+          ]
+        },
+        {
+          "title": "Agentic-AI: Building an AI oriented Kubernetes platform using AI agents",
+          "speakers": [
+            {
+              "name": "Sander Mathijssen",
+              "bio": "Sander is a Senior Platform Engineer with a strong DevOps mindset, focused on making complex infrastructure easier to use, understand, and manage."
+            }
+          ],
+          "abstract": "What if AI agents weren’t just tools but actual members of your development team? This session shares the journey of building a Kubernetes platform designed for an AI-first future, where agents operate under zero trust, learn from mistakes, and help end users through built-in AI capabilities."
+        },
+        {
+          "title": "The AI realist",
+          "speakers": [
+            {
+              "name": "Bjorn Schijff",
+              "bio": "Bjorn is an experienced hands-on software architect and senior engineer who coaches, runs workshops, shares knowledge, and delivers real value to teams."
+            }
+          ],
+          "abstract": "AI is reshaping software engineering at a rapid pace. This talk takes an honest look at what AI is genuinely good at, where it struggles, why it accelerates greenfield development, and why it can fall short in load-bearing, business-critical systems."
+        },
+        {
+          "title": "Be Aware of the Context You Provide",
+          "speakers": [
+            {
+              "name": "Gijsbert Nutma",
+              "bio": "Gijsbert is a Python Software Engineer who works daily with AI coding agents on a monorepo of over 60,000 lines of code."
+            }
+          ],
+          "abstract": "AI coding agents can be incredibly helpful or incredibly frustrating. The difference is often the context you give them. This session shares practical lessons from using AI agents every day in complex codebases, showing how better context leads to better outcomes and how to avoid agents getting in the way."
+        }
+      ]
+    },
+    {
+      "startTime": "19:45",
+      "endTime": "20:15",
+      "title": "Breakout sessions 2",
+      "type": "breakout-group",
+      "sessions": [
+        {
+          "title": "Close the gap between AI and Robotics with Java 25",
+          "speakers": [
+            {
+              "name": "Ricky van Rijn"
+            }
+          ]
+        },
+        {
+          "title": "Choosing the Right LLM, Automatically",
+          "speakers": [
+            {
+              "name": "Stuart van der Lee"
+            }
+          ]
+        },
+        {
+          "title": "Building Flexible AI Avatars for Immersive Training",
+          "speakers": [
+            {
+              "name": "Arco Nederveen"
+            },
+            {
+              "name": "Saskia Groenewegen"
+            }
+          ]
+        },
+        {
+          "title": "Build an AI Agent That Actually Does Your Work: MCP + LangGraph",
+          "speakers": [
+            {
+              "name": "Peter Eijgermans",
+              "bio": "Peter is a long-time software developer and CodeSmith Frontend at Sopra Steria, focused on connecting users, teams, and products into coherent experiences."
+            }
+          ],
+          "abstract": "The era of the chatty bot is over. This session shows how to move from AI that talks to AI that executes real work, using Python, LangGraph, MCP, and the ReAct pattern to build agents that complete workflows, handle tasks, and even commit code."
+        },
+        {
+          "title": "Build an agent into any app with the GitHub Copilot SDK",
+          "speakers": [
+            {
+              "name": "Bart Wullems",
+              "bio": "Bart is a Solution Architect and Lead Architect at Vlaamse Landmaatschappij, focused on bridging architecture and real-world delivery."
+            }
+          ],
+          "abstract": "AI is moving from assistants we query to agents that collaborate inside applications. This session explores how to embed GitHub Copilot powered agents directly into apps, extend them with custom skills, and connect them to data and workflows."
+        }
+      ]
+    },
+    {
+      "startTime": "21:10",
+      "endTime": "21:45",
+      "title": "Comedy by Kim Schuddeboom",
+      "type": "comedy",
+      "speakers": [
+        {
+          "name": "Kim Schuddeboom"
+        }
+      ],
+      "language": "nl"
+    },
+    {
+      "startTime": "21:50",
+      "endTime": "23:00",
+      "title": "Drinks",
+      "type": "general"
+    }
+  ],
+  "notes": [
+    "The public website was partially rendered client-side, so this file combines data found from the event page snippets, Meetup schedule mirrors, LinkedIn speaker posts, and speaker profile pages.",
+    "Some sessions only had title and speaker information available from indexed sources."
+  ]
+}
