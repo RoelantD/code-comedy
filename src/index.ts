@@ -8,6 +8,10 @@ import * as commonTools from './tools/common.js';
 import { getEventInfoHandler } from './tools/getEventInfo.js';
 import { listScheduleHandler } from './tools/listSchedule.js';
 import { getCurrentOrNextHandler } from './tools/getCurrentOrNextItem.js';
+import { searchSessionsHandler } from './tools/searchSessions.js';
+import { listSpeakersHandler } from './tools/listSpeakers.js';
+import { listCategoriesHandler } from './tools/listCategories.js';
+import { getSessionDetailsHandler } from './tools/getSessionDetails.js';
 
 let eventModel: EventModel;
 
@@ -143,7 +147,7 @@ async function initializeServer(): Promise<Server> {
   // Register call_tool handler
   server.setRequestHandler(CallToolRequestSchema, async (request) => {
     const toolName = request.params.name;
-    const input = request.params.arguments;
+    const input = (request.params.arguments ?? {}) as Record<string, unknown>;
 
     try {
       switch (toolName) {
@@ -184,19 +188,54 @@ async function initializeServer(): Promise<Server> {
           };
         }
 
-        // US2 tools (not yet implemented)
-        case 'search_sessions':
-        case 'list_speakers':
-        case 'list_categories':
-        case 'get_session_details':
+        // US2 tools (Discovery)
+        case 'search_sessions': {
+          const result = searchSessionsHandler(eventModel, input);
           return {
             content: [
               {
                 type: 'text',
-                text: JSON.stringify(commonTools.errorResponse(`Tool ${toolName} not yet implemented`)),
+                text: JSON.stringify(result),
               },
             ],
           };
+        }
+
+        case 'list_speakers': {
+          const result = listSpeakersHandler(eventModel, input);
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(result),
+              },
+            ],
+          };
+        }
+
+        case 'list_categories': {
+          const result = listCategoriesHandler(eventModel, input);
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(result),
+              },
+            ],
+          };
+        }
+
+        case 'get_session_details': {
+          const result = getSessionDetailsHandler(eventModel, input);
+          return {
+            content: [
+              {
+                type: 'text',
+                text: JSON.stringify(result),
+              },
+            ],
+          };
+        }
 
         // US3 tools (not yet implemented)
         case 'recommend_sessions':
